@@ -122,6 +122,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -172,10 +182,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-21 23:15:04 / 修改时间：23:42:44" itemprop="dateCreated datePublished" datetime="2022-08-21T23:15:04+08:00">2022-08-21</time>
+              <time title="创建时间：2022-08-21 23:15:04" itemprop="dateCreated datePublished" datetime="2022-08-21T23:15:04+08:00">2022-08-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-22 11:30:28" itemprop="dateModified" datetime="2022-08-22T11:30:28+08:00">2022-08-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -197,25 +213,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>WSL大量占用C盘空间，C盘扩容较繁琐，考虑将WSL移动至其他空间富余磁盘</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>Windows 11 (beta)</li>
-<li>WSL 2 (Ubuntu 20.04)</li>
-</ul>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><a target="_blank" rel="noopener" href="https://github.com/pxlrbt/move-wsl"><strong>move-wsl</strong></a></p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
-<li>运行 <strong>Windows PowerShell</strong> ,停止WSL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --shutdown</span><br></pre></td></tr></table></figure></li>
-<li>拉取 <a target="_blank" rel="noopener" href="https://github.com/pxlrbt/move-wsl"><strong>move-wsl</strong></a> 仓库<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/pxlrbt/move-wsl.git</span><br></pre></td></tr></table></figure></li>
-<li>进入仓库，运行<code>move-wsl.ps1</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> move-wsl</span><br><span class="line">./move-wsl.ps1</span><br></pre></td></tr></table></figure></li>
-<li>选择需要移动的发行版</li>
-<li>选择<code>Install</code>选项</li>
-<li>等待<code>Done</code></li>
-<li>重新启动WSL服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl</span><br></pre></td></tr></table></figure></li>
-<li>更改默认用户，移动后默认用户变为<code>root</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/wsl.conf</span><br></pre></td></tr></table></figure>
-写入以下内容，<strong>YOUR_USERNAME</strong> 替换为用户名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">default=YOUR_USERNAME</span><br></pre></td></tr></table></figure></li>
-<li>重新启动WSL服务</li>
-</ul>
-
+          <p>WSL大量占用C盘空间，C盘扩容较繁琐，使用 <strong>move-wsl</strong> 工具将WSL移动至其他空间富余磁盘</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/tools/move-wsl2-to-other-disk/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -447,11 +453,13 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
+          
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
+          
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
