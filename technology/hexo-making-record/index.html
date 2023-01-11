@@ -252,36 +252,23 @@
 <p>两者相比之下，WordPress适合搭建功能较丰富的应用型网站，而Hexo更适合搭建个人博客。当然WordPress的可玩性肯定是比Hexo要高的，但是Hexo的部署方式更为简便、维护也更加精简。个人认为WordPress比较适合需要一劳永逸部署好就不动它的用户，而Hexo更适合爱折腾的用户。我两者都有用，用WordPress在云服务器上搭了一个网站以方便工作生活日常的文件收集，而个人博客则是使用Hexo在本地编辑好后更新到云服务器上的。Hexo有个写个人博客非常方便的优点，他可以直接在本地编辑，这意味着文章中要用到的图片、视频等文件都可以直接放在本地，更新博客时就不需要刻意去上传多媒体文件。</p>
 <h2 id="搭建-Hexo-个人博客"><a href="#搭建-Hexo-个人博客" class="headerlink" title="搭建 Hexo 个人博客"></a>搭建 Hexo 个人博客</h2><p>摘自 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> 官方文档</p>
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h4><ul>
-<li>Windows：从 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 官网上下载安装程序并运行</li>
-<li>Linux：从 <a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">nodesource</a> 获取并安装<br>&#96;&#96;&#96;bash<h1 id="Using-Ubuntu"><a href="#Using-Ubuntu" class="headerlink" title="Using Ubuntu"></a>Using Ubuntu</h1>curl -fsSL <a target="_blank" rel="noopener" href="https://deb.nodesource.com/setup_16.x">https://deb.nodesource.com/setup_16.x</a> | sudo -E bash -<br>sudo apt-get install -y nodejs</li>
+<li><p>Windows：从 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 官网上下载安装程序并运行</p>
+</li>
+<li><p>Linux：从 <a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">nodesource</a> 获取并安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Using Ubuntu</span></span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -</span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using Debian, as root</span></span><br><span class="line">curl -fsSL https://deb.nodesource.com/setup_16.x | bash -</span><br><span class="line">apt-get install -y nodejs</span><br></pre></td></tr></table></figure>
+<h4 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h4></li>
+<li><p>Windows：下载 <a target="_blank" rel="noopener" href="https://git-scm.com/download/win">git</a> 并安装</p>
+</li>
+<li><p>Linux：<code>sudo apt-get install git</code></p>
+</li>
 </ul>
-<h1 id="Using-Debian-as-root"><a href="#Using-Debian-as-root" class="headerlink" title="Using Debian, as root"></a>Using Debian, as root</h1><p>curl -fsSL <a target="_blank" rel="noopener" href="https://deb.nodesource.com/setup_16.x">https://deb.nodesource.com/setup_16.x</a> | bash -<br>apt-get install -y nodejs</p>
-<pre><code>#### 安装 Git
+<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-- Windows：下载 [git](https://git-scm.com/download/win) 并安装
-- Linux：`sudo apt-get install git`
-
-#### 安装 Hexo
-
-所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo
-```bash
-npm install -g hexo-cli
-</code></pre>
 <h4 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h4><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<pre><code class="bash">hexo init &lt;folder&gt;
-cd &lt;folder&gt;
-npm install
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <p>新建完成后，指定文件夹的目录如下：</p>
-<pre><code class="bash">.
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>_config.yml</strong><br>网站的 配置 信息，您可以在此配置大部分的参数。<br><strong>package.json</strong><br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。<br><strong>scaffolds</strong><br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。<br><strong>source</strong><br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 &#x2F; 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。<br><strong>themes</strong><br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
 </blockquote>
@@ -370,7 +357,7 @@ npm install
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress-%E8%BF%98%E6%98%AF-Hexo"><span class="nav-number">1.</span> <span class="nav-text">WordPress 还是 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">搭建 Hexo 个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.1.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装 Node.js</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-Ubuntu"><span class="nav-number"></span> <span class="nav-text">Using Ubuntu</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Using-Debian-as-root"><span class="nav-number"></span> <span class="nav-text">Using Debian, as root</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">0.0.1.</span> <span class="nav-text">建站</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">0.1.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">0.1.1.</span> <span class="nav-text">主题</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress-%E8%BF%98%E6%98%AF-Hexo"><span class="nav-number">1.</span> <span class="nav-text">WordPress 还是 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">搭建 Hexo 个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.1.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.1.3.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">2.1.4.</span> <span class="nav-text">建站</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">2.2.1.</span> <span class="nav-text">主题</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

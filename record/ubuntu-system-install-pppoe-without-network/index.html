@@ -241,25 +241,21 @@
 
 <h2 id="下载离线pppoe安装包"><a href="#下载离线pppoe安装包" class="headerlink" title="下载离线pppoe安装包"></a>下载离线pppoe安装包</h2><p><a target="_blank" rel="noopener" href="http://security.ubuntu.com/ubuntu/pool/main/p/pppoeconf/pppoeconf_1.21ubuntu1_all.deb">pppoeconf_1.21ubuntu1_all.deb</a></p>
 <p>用U盘等存储设备将下载的<code>pppoeconf_1.21ubuntu1_all.deb</code>复制到Ubuntu主机下</p>
-<h2 id="离线安装pppoe"><a href="#离线安装pppoe" class="headerlink" title="离线安装pppoe"></a>离线安装pppoe</h2><pre><code class="shell">sudo dpkg -i ./pppoeconf_1.21ubuntu1_all.deb
-</code></pre>
-<h2 id="运行pppoe并配置连接"><a href="#运行pppoe并配置连接" class="headerlink" title="运行pppoe并配置连接"></a>运行pppoe并配置连接</h2><pre><code class="shell">sudo pppoeconf
-</code></pre>
+<h2 id="离线安装pppoe"><a href="#离线安装pppoe" class="headerlink" title="离线安装pppoe"></a>离线安装pppoe</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i ./pppoeconf_1.21ubuntu1_all.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行pppoe并配置连接"><a href="#运行pppoe并配置连接" class="headerlink" title="运行pppoe并配置连接"></a>运行pppoe并配置连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoeconf</span><br></pre></td></tr></table></figure>
+
 <h2 id="pppoe开启和停止"><a href="#pppoe开启和停止" class="headerlink" title="pppoe开启和停止"></a>pppoe开启和停止</h2><p>启动服务</p>
-<pre><code class="shell">sudo pon dsl-provider
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pon dsl-provider</span><br></pre></td></tr></table></figure>
+
 <p>停止服务</p>
-<pre><code class="shell">sudo poff
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo poff</span><br></pre></td></tr></table></figure>
+
 <h2 id="关于重复断连重试"><a href="#关于重复断连重试" class="headerlink" title="关于重复断连重试"></a>关于重复断连重试</h2><p>查看pppoe配置文件</p>
-<pre><code class="shell">sudo nano /etc/ppp/peers/dsl-provider
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ppp/peers/dsl-provider</span><br></pre></td></tr></table></figure>
+
 <p>调整<code>lcp-echo-failure</code>为15，即断连重试15次再重新连接</p>
-<pre><code class="xml">...
-lcp-echo-interval 30
-lcp-echo-failure 15
-...
-</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">lcp-echo-interval 30</span><br><span class="line">lcp-echo-failure 15</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
     </div>
 
