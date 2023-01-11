@@ -242,7 +242,41 @@
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>查看页面元素，发现需要勾选的html元素为radio类型的input标签，且类名均为 <code>radio-pjf</code> ，考虑用 <code>document.getElementsByClassName()</code> 获取所有选择框，设置完全同意对应的选择框的 <code>check</code> 属性</p>
 <p>提交按键的id为 <code>btm_ok</code> ，用 <code>document.getElementById()</code> 获取对应按钮，用 <code>click()</code> 模拟点击</p>
 <h2 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h2><p>使用 <code>click()</code> 模拟的点击会被网站拦截，无法提交，暂时还没找到绕过的方法，因此提交按钮需要手动点击，脚本仅是辅助批量选择选项和切换课程</p>
-<h2 id="脚本源码"><a href="#脚本源码" class="headerlink" title="脚本源码"></a>脚本源码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">evaluateCourse</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> course=<span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;ui-row-ltr&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;course.<span class="property">length</span>;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(course[i].<span class="property">innerText</span>[<span class="number">0</span>]===<span class="string">&#x27;未&#x27;</span>)&#123;</span><br><span class="line">          course[i].<span class="title function_">click</span>()</span><br><span class="line">          <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">              <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;radio-pjf&#x27;</span>).<span class="property">length</span>)</span><br><span class="line">          &#125;,<span class="number">3000</span>)</span><br><span class="line">          <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">              <span class="keyword">const</span> <span class="title class_">RadioList</span> = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;radio-pjf&#x27;</span>);</span><br><span class="line">              <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">50</span>;i+=<span class="number">5</span>)&#123;</span><br><span class="line">                  <span class="title class_">RadioList</span>[i].<span class="property">checked</span>=<span class="literal">true</span>;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; , <span class="number">3500</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> check = <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> success=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn_ok&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span>(success)&#123;</span><br><span class="line">      success.<span class="title function_">click</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,<span class="number">500</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> evaluate= <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>( <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;radio-pjf&#x27;</span>).<span class="property">length</span>&gt;<span class="number">49</span>)&#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">          evaluateCourse()</span><br><span class="line">      &#125;,<span class="number">500</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="脚本源码"><a href="#脚本源码" class="headerlink" title="脚本源码"></a>脚本源码</h2><pre><code class="javascript">function evaluateCourse() &#123;
+  const course=document.getElementsByClassName(&#39;ui-row-ltr&#39;);
+  for(var i=0;i&lt;course.length;i++)&#123;
+      if(course[i].innerText[0]===&#39;未&#39;)&#123;
+          course[i].click()
+          setTimeout(()=&gt;&#123;
+              console.log(document.getElementsByClassName(&#39;radio-pjf&#39;).length)
+          &#125;,3000)
+          setTimeout(function() &#123;
+              const RadioList = document.getElementsByClassName(&#39;radio-pjf&#39;);
+              for(var i=0;i&lt;50;i+=5)&#123;
+                  RadioList[i].checked=true;
+              &#125;
+          &#125; , 3500);
+          break;
+      &#125;
+  &#125;
+&#125;
+
+var check = setInterval(()=&gt;&#123;
+  const success=document.getElementById(&#39;btn_ok&#39;);
+  if(success)&#123;
+      success.click();
+  &#125;
+&#125;,500);
+
+var evaluate= setInterval(()=&gt;&#123;
+  if( document.getElementsByClassName(&#39;radio-pjf&#39;).length&gt;49)&#123;
+      setTimeout(()=&gt;&#123;
+          evaluateCourse()
+      &#125;,500)
+  &#125;
+&#125;,500)
+</code></pre>
+
     </div>
 
     
