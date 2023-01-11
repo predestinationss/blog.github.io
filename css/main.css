@@ -46,15 +46,6 @@
     opacity: 0.9;
   }
 }
-code {
-  padding: 2px 4px;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  color: #c5c8c6;
-  background: #1d1f21;
-  border-radius: 3px;
-  font-size: 18px;
-}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -476,9 +467,9 @@ code {
   font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
-  background: #eee;
+  background: #1d1f21;
   border-radius: 3px;
-  color: #555;
+  color: #c5c8c6;
   padding: 2px 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -1275,7 +1266,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6e4eff;
+  background: #39ff00;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
