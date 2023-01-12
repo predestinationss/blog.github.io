@@ -2,25 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://fater.top/tools/scnu-jwxt-evaluate-auto-script/</loc>
-    
-    <lastmod>2023-01-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fater.top/tools/move-wsl2-to-other-disk/</loc>
-    
-    <lastmod>2023-01-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/</loc>
+    <loc>https://fater.top/record/hexo-making-record/</loc>
     
     <lastmod>2023-01-12</lastmod>
     
@@ -38,7 +20,25 @@
   </url>
   
   <url>
-    <loc>https://fater.top/record/hexo-making-record/</loc>
+    <loc>https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/</loc>
+    
+    <lastmod>2023-01-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fater.top/tools/scnu-jwxt-evaluate-auto-script/</loc>
+    
+    <lastmod>2023-01-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://fater.top/tools/move-wsl2-to-other-disk/</loc>
     
     <lastmod>2023-01-12</lastmod>
     
@@ -136,14 +136,14 @@
 
   
   <url>
-    <loc>https://fater.top/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://fater.top/categories/record/</loc>
     <lastmod>2023-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://fater.top/categories/%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://fater.top/categories/tools/</loc>
     <lastmod>2023-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

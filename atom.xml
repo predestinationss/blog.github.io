@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>不会Debug</title>
+  <icon>https://fater.top/icon.png</icon>
+  <subtitle>FaterYU&#39;s blog</subtitle>
+  <link href="https://fater.top/atom.xml" rel="self"/>
+  
+  <link href="https://fater.top/"/>
+  <updated>2023-01-12T01:19:43.605Z</updated>
+  <id>https://fater.top/</id>
+  
+  <author>
+    <name>FaterYU</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SCNU教务系统学生评价辅助工具</title>
+    <link href="https://fater.top/tools/scnu-jwxt-evaluate-auto-script/"/>
+    <id>https://fater.top/tools/scnu-jwxt-evaluate-auto-script/</id>
+    <published>2023-01-01T03:50:49.000Z</published>
+    <updated>2023-01-12T01:19:43.605Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;华南师范大学教务系统学生评价辅助脚本&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="tools" scheme="https://fater.top/categories/tools/"/>
+    
+    
+    <category term="Tampermonkey" scheme="https://fater.top/tags/Tampermonkey/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在Ubuntu上使用Docker容器隔离出单个cuda环境</title>
+    <link href="https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/"/>
+    <id>https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/</id>
+    <published>2022-08-25T10:00:43.000Z</published>
+    <updated>2023-01-12T01:19:43.605Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;为多人共用服务器上的计算资源，在Ubuntu宿主机上，使用Docker隔离，并在Docker中配置cuda环境，以及tensorflow-gpu环境&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="cuda" scheme="https://fater.top/tags/cuda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>无网络的Ubuntu环境下安装pppoe拨号上网</title>
+    <link href="https://fater.top/record/ubuntu-system-install-pppoe-without-network/"/>
+    <id>https://fater.top/record/ubuntu-system-install-pppoe-without-network/</id>
+    <published>2022-08-24T10:57:11.000Z</published>
+    <updated>2023-01-12T01:19:43.605Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在没有网络的Ubuntu环境下安装pppoe拨号上网&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="pppoe" scheme="https://fater.top/tags/pppoe/"/>
+    
+    <category term="离线" scheme="https://fater.top/tags/%E7%A6%BB%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动WSL2至其他磁盘</title>
+    <link href="https://fater.top/tools/move-wsl2-to-other-disk/"/>
+    <id>https://fater.top/tools/move-wsl2-to-other-disk/</id>
+    <published>2022-08-21T15:15:04.000Z</published>
+    <updated>2023-01-12T01:19:43.605Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;WSL大量占用C盘空间，C盘扩容较繁琐，使用 &lt;strong&gt;move-wsl&lt;/strong&gt; 工具将WSL移动至其他空间富余磁盘&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="tools" scheme="https://fater.top/categories/tools/"/>
+    
+    
+    <category term="WSL2" scheme="https://fater.top/tags/WSL2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Nginx 个人博客部署指南-避坑</title>
+    <link href="https://fater.top/record/hexo-making-record/"/>
+    <id>https://fater.top/record/hexo-making-record/</id>
+    <published>2022-02-05T04:09:25.000Z</published>
+    <updated>2023-01-12T01:50:12.915Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;使用Hexo搭建个人博客&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="Hexo" scheme="https://fater.top/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>

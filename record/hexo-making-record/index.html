@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用Hexo搭建个人博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-05T04:09:25.000Z">
-<meta property="article:modified_time" content="2023-01-12T01:14:55.005Z">
+<meta property="article:modified_time" content="2023-01-12T01:50:12.915Z">
 <meta property="article:author" content="FaterYU">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -77,6 +77,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="不会Debug" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -139,6 +140,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -199,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-12 09:14:55" itemprop="dateModified" datetime="2023-01-12T09:14:55+08:00">2023-01-12</time>
+                <time title="修改时间：2023-01-12 09:50:12" itemprop="dateModified" datetime="2023-01-12T09:50:12+08:00">2023-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -207,7 +213,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                  <a href="/categories/record/" itemprop="url" rel="index"><span itemprop="name">record</span></a>
                 </span>
             </span>
 
@@ -217,7 +223,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>906</span>
+              <span>979</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,7 +256,7 @@
 <hr>
 <p>两者相比之下，WordPress适合搭建功能较丰富的应用型网站，而Hexo更适合搭建个人博客。当然WordPress的可玩性肯定是比Hexo要高的，但是Hexo的部署方式更为简便、维护也更加精简。个人认为WordPress比较适合需要一劳永逸部署好就不动它的用户，而Hexo更适合爱折腾的用户。我两者都有用，用WordPress在云服务器上搭了一个网站以方便工作生活日常的文件收集，而个人博客则是使用Hexo在本地编辑好后更新到云服务器上的。Hexo有个写个人博客非常方便的优点，他可以直接在本地编辑，这意味着文章中要用到的图片、视频等文件都可以直接放在本地，更新博客时就不需要刻意去上传多媒体文件。</p>
 <h2 id="搭建-Hexo-个人博客"><a href="#搭建-Hexo-个人博客" class="headerlink" title="搭建 Hexo 个人博客"></a>搭建 Hexo 个人博客</h2><p>摘自 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> 官方文档</p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><h4 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h4><ul>
+<h3 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h3><h4 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h4><ul>
 <li><p>Windows：从 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 官网上下载安装程序并运行</p>
 </li>
 <li><p>Linux：从 <a target="_blank" rel="noopener" href="https://github.com/nodesource/distributions">nodesource</a> 获取并安装</p>
@@ -271,7 +277,13 @@
 <blockquote>
 <p><strong>_config.yml</strong><br>网站的 配置 信息，您可以在此配置大部分的参数。<br><strong>package.json</strong><br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。<br><strong>scaffolds</strong><br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。<br><strong>source</strong><br>资源文件夹是存放用户资源的地方。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 &#x2F; 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。<br><strong>themes</strong><br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
 </blockquote>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ul>
+<h3 id="部署网站服务器"><a href="#部署网站服务器" class="headerlink" title="部署网站服务器"></a>部署网站服务器</h3><p>在这里我尝试过两种选择</p>
+<ul>
+<li>Github Page</li>
+<li>Nginx</li>
+</ul>
+<p>Github Page 是每个 GitHub 账户都能申请一个的免费的网站，通常它的域名是 <code>UserName.github.io</code> ，其中 <code>UserName</code> 是 GitHub 账号的用户名。<br>Nginx 部署到自己的网站服务器上</p>
+<h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ul>
 <li>Next</li>
 <li>Matery</li>
 </ul>
@@ -281,6 +293,25 @@
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -355,7 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress-%E8%BF%98%E6%98%AF-Hexo"><span class="nav-number">1.</span> <span class="nav-text">WordPress 还是 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">搭建 Hexo 个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">2.1.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.1.3.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">2.1.4.</span> <span class="nav-text">建站</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">2.2.</span> <span class="nav-text">优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">2.2.1.</span> <span class="nav-text">主题</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WordPress-%E8%BF%98%E6%98%AF-Hexo"><span class="nav-number">1.</span> <span class="nav-text">WordPress 还是 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WordPress"><span class="nav-number">1.1.</span> <span class="nav-text">WordPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">搭建 Hexo 个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2"><span class="nav-number">2.1.</span> <span class="nav-text">本地部署</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Node-js"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装 Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Git"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="nav-number">2.1.3.</span> <span class="nav-text">安装 Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">2.1.4.</span> <span class="nav-text">建站</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">部署网站服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98"><span class="nav-number">2.2.1.</span> <span class="nav-text">主题</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
