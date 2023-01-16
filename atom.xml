@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-01-12T01:19:43.605Z</updated>
+  <updated>2023-01-16T03:22:54.446Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>raspi-relay-wifi</title>
+    <link href="https://fater.top/record/raspi-relay-wifi/"/>
+    <id>https://fater.top/record/raspi-relay-wifi/</id>
+    <published>2023-01-16T01:51:56.000Z</published>
+    <updated>2023-01-16T03:22:54.446Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;利用树莓派的一张有线网卡和一张无线网卡，将wifi转为有线信号，使无网卡设备可以网线直连树莓派进行上网&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="raspi" scheme="https://fater.top/tags/raspi/"/>
+    
+    <category term="DHCP" scheme="https://fater.top/tags/DHCP/"/>
+    
+    <category term="DNS" scheme="https://fater.top/tags/DNS/"/>
+    
+    <category term="wifi" scheme="https://fater.top/tags/wifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows Terminal 优化 | oh-my-posh+lux</title>
+    <link href="https://fater.top/tools/windows-terminal-tools/"/>
+    <id>https://fater.top/tools/windows-terminal-tools/</id>
+    <published>2023-01-14T02:32:00.000Z</published>
+    <updated>2023-01-16T01:50:24.486Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Windows Power Shell 也能像 Linux 一样更改主题，持续补充&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="tools" scheme="https://fater.top/categories/tools/"/>
+    
+    
+    <category term="Windows" scheme="https://fater.top/tags/Windows/"/>
+    
+    <category term="Terminal" scheme="https://fater.top/tags/Terminal/"/>
+    
+    <category term="oh-my-posh" scheme="https://fater.top/tags/oh-my-posh/"/>
+    
+    <category term="Lux" scheme="https://fater.top/tags/Lux/"/>
+    
+  </entry>
   
   <entry>
     <title>SCNU教务系统学生评价辅助工具</title>
@@ -72,44 +122,6 @@
     <category term="pppoe" scheme="https://fater.top/tags/pppoe/"/>
     
     <category term="离线" scheme="https://fater.top/tags/%E7%A6%BB%E7%BA%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>移动WSL2至其他磁盘</title>
-    <link href="https://fater.top/tools/move-wsl2-to-other-disk/"/>
-    <id>https://fater.top/tools/move-wsl2-to-other-disk/</id>
-    <published>2022-08-21T15:15:04.000Z</published>
-    <updated>2023-01-12T01:19:43.605Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;WSL大量占用C盘空间，C盘扩容较繁琐，使用 &lt;strong&gt;move-wsl&lt;/strong&gt; 工具将WSL移动至其他空间富余磁盘&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="tools" scheme="https://fater.top/categories/tools/"/>
-    
-    
-    <category term="WSL2" scheme="https://fater.top/tags/WSL2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo+Nginx 个人博客部署指南-避坑</title>
-    <link href="https://fater.top/record/hexo-making-record/"/>
-    <id>https://fater.top/record/hexo-making-record/</id>
-    <published>2022-02-05T04:09:25.000Z</published>
-    <updated>2023-01-12T01:50:12.915Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;使用Hexo搭建个人博客&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="record" scheme="https://fater.top/categories/record/"/>
-    
-    
-    <category term="Hexo" scheme="https://fater.top/tags/Hexo/"/>
     
   </entry>
   
