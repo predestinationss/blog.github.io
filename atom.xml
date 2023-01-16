@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-01-16T03:22:54.446Z</updated>
+  <updated>2023-01-16T03:24:35.259Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>raspi-relay-wifi</title>
+    <title>无网卡设备利用树莓派wifi联网 | DHCP</title>
     <link href="https://fater.top/record/raspi-relay-wifi/"/>
     <id>https://fater.top/record/raspi-relay-wifi/</id>
     <published>2023-01-16T01:51:56.000Z</published>
-    <updated>2023-01-16T03:22:54.446Z</updated>
+    <updated>2023-01-16T03:24:35.259Z</updated>
     
     
     <summary type="html">&lt;p&gt;利用树莓派的一张有线网卡和一张无线网卡，将wifi转为有线信号，使无网卡设备可以网线直连树莓派进行上网&lt;/p&gt;</summary>
