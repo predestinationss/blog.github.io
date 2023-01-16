@@ -364,6 +364,7 @@ Ctrl+X 回车输入 y 回车保存并退出
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -557,6 +558,26 @@ Ctrl+X 回车输入 y 回车保存并退出
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '40e025fce2f7bcef2025',
+      clientSecret: '637f933745129149c026e0e28b144880584a4cf2',
+      repo        : 'Fater-blog-comments',
+      owner       : 'FaterYU',
+      admin       : ['FaterYU'],
+      id          : '9c7244c93b38dcbca6e3a6d710442b04',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
