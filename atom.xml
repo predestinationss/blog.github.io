@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-01-16T03:24:35.259Z</updated>
+  <updated>2023-01-16T03:28:24.248Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://fater.top/record/raspi-relay-wifi/"/>
     <id>https://fater.top/record/raspi-relay-wifi/</id>
     <published>2023-01-16T01:51:56.000Z</published>
-    <updated>2023-01-16T03:24:35.259Z</updated>
+    <updated>2023-01-16T03:28:24.248Z</updated>
     
     
     <summary type="html">&lt;p&gt;利用树莓派的一张有线网卡和一张无线网卡，将wifi转为有线信号，使无网卡设备可以网线直连树莓派进行上网&lt;/p&gt;</summary>
@@ -46,7 +46,7 @@
     <link href="https://fater.top/tools/windows-terminal-tools/"/>
     <id>https://fater.top/tools/windows-terminal-tools/</id>
     <published>2023-01-14T02:32:00.000Z</published>
-    <updated>2023-01-16T01:50:24.486Z</updated>
+    <updated>2023-01-16T03:28:34.920Z</updated>
     
     
     <summary type="html">&lt;p&gt;Windows Power Shell 也能像 Linux 一样更改主题，持续补充&lt;/p&gt;</summary>
