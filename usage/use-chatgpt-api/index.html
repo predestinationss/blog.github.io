@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fater.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本来没有兴趣的，是 openai 的价格先动的手，记录一下使用 chatGPT API 的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="use-chatgpt-api">
+<meta property="og:url" content="https://fater.top/usage/use-chatgpt-api/index.html">
+<meta property="og:site_name" content="不会Debug">
+<meta property="og:description" content="本来没有兴趣的，是 openai 的价格先动的手，记录一下使用 chatGPT API 的过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fater.top/img/use-chatgpt-api-0.png">
+<meta property="og:image" content="https://fater.top/img/use-chatgpt-api-1.png">
+<meta property="og:image" content="https://fater.top/img/use-chatgpt-api-2.png">
+<meta property="og:image" content="https://fater.top/img/use-chatgpt-api-3">
+<meta property="article:published_time" content="2023-03-03T06:03:20.000Z">
+<meta property="article:modified_time" content="2023-03-03T06:48:39.693Z">
+<meta property="article:author" content="FaterYU">
+<meta property="article:tag" content="chatGPT">
+<meta property="article:tag" content="openAI">
+<meta property="article:tag" content="API">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fater.top/img/use-chatgpt-api-0.png">
+
+<link rel="canonical" href="https://fater.top/usage/use-chatgpt-api/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>use-chatgpt-api | 不会Debug</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="不会Debug" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">不会Debug</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">FaterYU's blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fater.top/usage/use-chatgpt-api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="FaterYU">
+      <meta itemprop="description" content="记录各种技术折腾过程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不会Debug">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          use-chatgpt-api
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-03 14:03:20 / 修改时间：14:48:39" itemprop="dateCreated datePublished" datetime="2023-03-03T14:03:20+08:00">2023-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/usage/" itemprop="url" rel="index"><span itemprop="name">usage</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>791</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本来没有兴趣的，是 openai 的价格先动的手，记录一下使用 chatGPT API 的过程</p>
+<span id="more"></span>
+
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>前段时间 chatGPT 刚出的时候用过网页端的，体验比较一般，第一是需要有稳定的网络环境，第二是反馈有时候会出不来需要重新加载页面。知道早上在 Twitter 刷到 openAI 的推文<a target="_blank" rel="noopener" href="https://openai.com/blog/introducing-chatgpt-and-whisper-apis">Introducing ChatGPT and Whisper APIs</a></p>
+<p><img src="/img/use-chatgpt-api-0.png" alt="openAI&#39;s Twitter"></p>
+<p>又去官网看了眼价格，不关我事，是价格先动的手</p>
+<p><img src="/img/use-chatgpt-api-1.png" alt="chatGPT&#39;s Price"></p>
+<h2 id="API使用效果"><a href="#API使用效果" class="headerlink" title="API使用效果"></a>API使用效果</h2><p>可以在代码里调用<br><img src="/img/use-chatgpt-api-2.png" alt="chatGPT&#39;s api result"></p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>首先有两个前提：</p>
+<ul>
+<li>科学上网</li>
+<li>注册openAI的账号</li>
+</ul>
+<blockquote>
+<p>(由于是之前注册的，先留个空，可以先上网找下保姆级教程，回头再来补)</p>
+</blockquote>
+<h3 id="注册API"><a href="#注册API" class="headerlink" title="注册API"></a>注册API</h3><ol>
+<li>先访问 <a target="_blank" rel="noopener" href="https://platform.openai.com/account/api-keys">openAI</a> 然后登录</li>
+<li>登录后找到 <code>USER</code> 选项下的 <code>API Keys</code></li>
+<li>点击 <code>+ Create new secret key</code> 生成密钥并<strong>复制记录</strong>下来，应该无法再次查看的，如果没记到删了再加就行</li>
+<li>生成后的界面如下</li>
+</ol>
+<p><img src="/img/use-chatgpt-api-3" alt="Create new secret key"></p>
+<h3 id="在-python-中安装-openai"><a href="#在-python-中安装-openai" class="headerlink" title="在 python 中安装 openai"></a>在 python 中安装 openai</h3><ol>
+<li>确保有python环境</li>
+<li><code>pip install openai</code></li>
+</ol>
+<h3 id="python-简单调用-chatGPT"><a href="#python-简单调用-chatGPT" class="headerlink" title="python 简单调用 chatGPT"></a>python 简单调用 chatGPT</h3><p>新建一个<code>.py</code>文件，写入以下内容并保存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> openai</span><br><span class="line">openai.api_key = <span class="string">&#x27;sk-xxxxx&#x27;</span>//$&#123;YOUR_API_KEY&#125;</span><br><span class="line">openai.ChatCompletion.create(</span><br><span class="line">    model=<span class="string">&quot;gpt-3.5-turbo&quot;</span>,</span><br><span class="line">    messages=[</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;How would  you comment on the api of chatgpt?&quot;</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> openai</span><br></pre></td></tr></table></figure>
+
+<p>导入上一步安装的openai包，这个包里有很多其他好玩的东西，例如gym等</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openai.api_key = <span class="string">&#x27;sk-xxxxx&#x27;</span>//$&#123;YOUR_API_KEY&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设置<code>api_key</code>，将<code>&#39;sk-xxxxx&#39;</code>替换成你在 openAI 上注册 API 时保存的那一串<code>sk-</code>起头的字符</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openai.ChatCompletion.create(</span><br><span class="line">    model=<span class="string">&quot;gpt-3.5-turbo&quot;</span>,</span><br><span class="line">    messages=[</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;How would  you comment on the api of chatgpt?&quot;</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>生成一个会话，使用<code>gpt-3.5</code>的模型，并发送<code>user</code>类别的信息<code>How would  you comment on the api of chatgpt?</code><br>在这个API中一共有<code>system</code>,<code>user</code>,<code>assistant</code>三个类别的信息，官方是这样说明的：</p>
+<blockquote>
+<p>The <strong>system</strong> message helps set the behavior of the assistant. In the example above, the assistant was instructed with “You are a helpful assistant.”</p>
+<p>The <strong>user</strong> messages help instruct the assistant. They can be generated by the end users of an application, or set by a developer as an instruction.</p>
+<p>The <strong>assistant</strong> messages help store prior responses. They can also be written by a developer to help give examples of desired behavior.</p>
+</blockquote>
+<p>可以简单理解为<code>system</code>是告诉它它是一个什么身份或有什么特性；<code>user</code>是一般使用的，用来询问或命令它生成信息；<code>assistant</code>是用于引导它生成你想得到的信息</p>
+<p>执行代码后输出如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;choices&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;finish_reason&quot;</span>: <span class="string">&quot;stop&quot;</span>,</span><br><span class="line">      <span class="string">&quot;index&quot;</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="string">&quot;message&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;content&quot;</span>: <span class="string">&quot;\n\nAs an AI language model, I don&#x27;t have access to the API of ChatGPT or any specific technical knowledge about it. However, based on user feedback and reviews, ChatGPT&#x27;s API is generally considered to be reliable, user-friendly, and efficient in delivering chatbot services. With its advanced natural language processing capabilities, the ChatGPT API is recognized for its ability to provide intelligent and personalized responses to user queries, making it a valuable tool for businesses seeking to improve their customer service and engagement. Overall, the API of ChatGPT is a powerful and effective tool for chatbot development and integration.&quot;</span>,</span><br><span class="line">        <span class="string">&quot;role&quot;</span>: <span class="string">&quot;assistant&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;created&quot;</span>: xxxxx,</span><br><span class="line">  <span class="string">&quot;id&quot;</span>: <span class="string">&quot;chatcmpl-xxxxx&quot;</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;gpt-3.5-turbo-0301&quot;</span>,</span><br><span class="line">  <span class="string">&quot;object&quot;</span>: <span class="string">&quot;chat.completion&quot;</span>,</span><br><span class="line">  <span class="string">&quot;usage&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;completion_tokens&quot;</span>: <span class="number">125</span>,</span><br><span class="line">    <span class="string">&quot;prompt_tokens&quot;</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="string">&quot;total_tokens&quot;</span>: <span class="number">145</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此已经可以将这个API简单的嵌进自己的应用里了，至于还有什么开脑洞的用法还得用一段时间看看</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/chatGPT/" rel="tag"># chatGPT</a>
+              <a href="/tags/openAI/" rel="tag"># openAI</a>
+              <a href="/tags/API/" rel="tag"># API</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/record/raspi-relay-wifi/" rel="prev" title="无网卡设备利用树莓派wifi联网 | DHCP">
+      <i class="fa fa-chevron-left"></i> 无网卡设备利用树莓派wifi联网 | DHCP
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API%E4%BD%BF%E7%94%A8%E6%95%88%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">API使用效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">3.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CAPI"><span class="nav-number">3.2.</span> <span class="nav-text">注册API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-python-%E4%B8%AD%E5%AE%89%E8%A3%85-openai"><span class="nav-number">3.3.</span> <span class="nav-text">在 python 中安装 openai</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python-%E7%AE%80%E5%8D%95%E8%B0%83%E7%94%A8-chatGPT"><span class="nav-number">3.4.</span> <span class="nav-text">python 简单调用 chatGPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="nav-number">3.4.1.</span> <span class="nav-text">代码说明</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">FaterYU</p>
+  <div class="site-description" itemprop="description">记录各种技术折腾过程</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/FaterYU" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;FaterYU" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:defateyz@gmail.com" title="E-Mail → mailto:defateyz@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://sapgs.fater.top/" title="http:&#x2F;&#x2F;sapgs.fater.top&#x2F;" rel="noopener" target="_blank">SAPGS</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备2023001699号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FaterYU</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">6k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '40e025fce2f7bcef2025',
+      clientSecret: '637f933745129149c026e0e28b144880584a4cf2',
+      repo        : 'Fater-blog-comments',
+      owner       : 'FaterYU',
+      admin       : ['FaterYU'],
+      id          : '37101989cb6462bbdd5c313afd23eb45',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

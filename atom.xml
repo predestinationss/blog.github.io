@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-01-16T03:28:24.248Z</updated>
+  <updated>2023-03-03T06:48:39.693Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>use-chatgpt-api</title>
+    <link href="https://fater.top/usage/use-chatgpt-api/"/>
+    <id>https://fater.top/usage/use-chatgpt-api/</id>
+    <published>2023-03-03T06:03:20.000Z</published>
+    <updated>2023-03-03T06:48:39.693Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本来没有兴趣的，是 openai 的价格先动的手，记录一下使用 chatGPT API 的过程&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="usage" scheme="https://fater.top/categories/usage/"/>
+    
+    
+    <category term="chatGPT" scheme="https://fater.top/tags/chatGPT/"/>
+    
+    <category term="openAI" scheme="https://fater.top/tags/openAI/"/>
+    
+    <category term="API" scheme="https://fater.top/tags/API/"/>
+    
+  </entry>
   
   <entry>
     <title>无网卡设备利用树莓派wifi联网 | DHCP</title>
@@ -101,27 +124,6 @@
     
     
     <category term="cuda" scheme="https://fater.top/tags/cuda/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无网络的Ubuntu环境下安装pppoe拨号上网</title>
-    <link href="https://fater.top/record/ubuntu-system-install-pppoe-without-network/"/>
-    <id>https://fater.top/record/ubuntu-system-install-pppoe-without-network/</id>
-    <published>2022-08-24T10:57:11.000Z</published>
-    <updated>2023-01-12T01:19:43.605Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在没有网络的Ubuntu环境下安装pppoe拨号上网&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="record" scheme="https://fater.top/categories/record/"/>
-    
-    
-    <category term="pppoe" scheme="https://fater.top/tags/pppoe/"/>
-    
-    <category term="离线" scheme="https://fater.top/tags/%E7%A6%BB%E7%BA%BF/"/>
     
   </entry>
   
