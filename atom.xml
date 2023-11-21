@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-03-03T09:24:59.102Z</updated>
+  <updated>2023-11-21T18:39:12.003Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu 20.04 构建并测试 AlphaPose</title>
+    <link href="https://fater.top/usage/build-test-alphapose/"/>
+    <id>https://fater.top/usage/build-test-alphapose/</id>
+    <published>2023-07-13T05:08:58.000Z</published>
+    <updated>2023-11-21T18:39:12.003Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;部署构建AlphaPose项目时的两次尝试，第一次在Windows 11 WSL2 Ubuntu 20.04上构建，第二次在Ubuntu 20.04上构建，两次均配置完成，但WSL2上的AlphaPose无法正常运行，原因是笔记本的MX450显卡显存仅有2GB，更换云GPU服务器后，使用Nvidia 3080Ti显卡，构建并测试正常运行。此外还记录了在构建过程中遇到的问题及解决方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="usage" scheme="https://fater.top/categories/usage/"/>
+    
+    
+    <category term="AlphaPose" scheme="https://fater.top/tags/AlphaPose/"/>
+    
+    <category term="Pose Estimation" scheme="https://fater.top/tags/Pose-Estimation/"/>
+    
+  </entry>
   
   <entry>
     <title>简单使用 chatGPT API</title>
@@ -105,25 +126,6 @@
     
     
     <category term="Tampermonkey" scheme="https://fater.top/tags/Tampermonkey/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Ubuntu上使用Docker容器隔离出单个cuda环境</title>
-    <link href="https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/"/>
-    <id>https://fater.top/record/init-nvidia-in-docker-by-ssh-ubuntu/</id>
-    <published>2022-08-25T10:00:43.000Z</published>
-    <updated>2023-01-12T01:19:43.605Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;为多人共用服务器上的计算资源，在Ubuntu宿主机上，使用Docker隔离，并在Docker中配置cuda环境，以及tensorflow-gpu环境&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="record" scheme="https://fater.top/categories/record/"/>
-    
-    
-    <category term="cuda" scheme="https://fater.top/tags/cuda/"/>
     
   </entry>
   
