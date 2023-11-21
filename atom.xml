@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-11-21T18:39:12.003Z</updated>
+  <updated>2023-11-21T19:08:55.447Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>升级WSL系统并安装ROS2-Humble</title>
+    <link href="https://fater.top/record/upgrade-wsl-system-install-ros2-humble/"/>
+    <id>https://fater.top/record/upgrade-wsl-system-install-ros2-humble/</id>
+    <published>2023-11-21T18:48:06.000Z</published>
+    <updated>2023-11-21T19:08:55.447Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;将WSL系统从Ubuntu 20.04升级到Ubuntu 22.04，并安装ROS2-Humble。记录遇到的部分问题及解决方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="WSL" scheme="https://fater.top/tags/WSL/"/>
+    
+    <category term="ROS2-Humble" scheme="https://fater.top/tags/ROS2-Humble/"/>
+    
+    <category term="Ubuntu" scheme="https://fater.top/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu 20.04 构建并测试 AlphaPose</title>
@@ -107,25 +130,6 @@
     <category term="oh-my-posh" scheme="https://fater.top/tags/oh-my-posh/"/>
     
     <category term="Lux" scheme="https://fater.top/tags/Lux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SCNU教务系统学生评价辅助工具</title>
-    <link href="https://fater.top/tools/scnu-jwxt-evaluate-auto-script/"/>
-    <id>https://fater.top/tools/scnu-jwxt-evaluate-auto-script/</id>
-    <published>2023-01-01T03:50:49.000Z</published>
-    <updated>2023-01-12T01:19:43.605Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;华南师范大学教务系统学生评价辅助脚本&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="tools" scheme="https://fater.top/categories/tools/"/>
-    
-    
-    <category term="Tampermonkey" scheme="https://fater.top/tags/Tampermonkey/"/>
     
   </entry>
   

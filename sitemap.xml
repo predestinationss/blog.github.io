@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fater.top/record/upgrade-wsl-system-install-ros2-humble/</loc>
+    
+    <lastmod>2023-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://fater.top/usage/build-test-alphapose/</loc>
     
     <lastmod>2023-11-21</lastmod>
@@ -255,6 +264,27 @@
   
   <url>
     <loc>https://fater.top/tags/Pose-Estimation/</loc>
+    <lastmod>2023-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fater.top/tags/WSL/</loc>
+    <lastmod>2023-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fater.top/tags/ROS2-Humble/</loc>
+    <lastmod>2023-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://fater.top/tags/Ubuntu/</loc>
     <lastmod>2023-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

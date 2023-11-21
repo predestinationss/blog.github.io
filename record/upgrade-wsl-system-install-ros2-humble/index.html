@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"fater.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在没有网络的Ubuntu环境下安装pppoe拨号上网">
+  <meta name="description" content="将WSL系统从Ubuntu 20.04升级到Ubuntu 22.04，并安装ROS2-Humble。记录遇到的部分问题及解决方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无网络的Ubuntu环境下安装pppoe拨号上网">
-<meta property="og:url" content="https://fater.top/record/ubuntu-system-install-pppoe-without-network/index.html">
+<meta property="og:title" content="升级WSL系统并安装ROS2-Humble">
+<meta property="og:url" content="https://fater.top/record/upgrade-wsl-system-install-ros2-humble/index.html">
 <meta property="og:site_name" content="不会Debug">
-<meta property="og:description" content="在没有网络的Ubuntu环境下安装pppoe拨号上网">
+<meta property="og:description" content="将WSL系统从Ubuntu 20.04升级到Ubuntu 22.04，并安装ROS2-Humble。记录遇到的部分问题及解决方法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-24T10:57:11.000Z">
-<meta property="article:modified_time" content="2023-01-12T01:19:43.605Z">
+<meta property="article:published_time" content="2023-11-21T18:48:06.000Z">
+<meta property="article:modified_time" content="2023-11-21T19:08:55.447Z">
 <meta property="article:author" content="FaterYU">
-<meta property="article:tag" content="pppoe">
-<meta property="article:tag" content="离线">
+<meta property="article:tag" content="WSL">
+<meta property="article:tag" content="ROS2-Humble">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://fater.top/record/ubuntu-system-install-pppoe-without-network/">
+<link rel="canonical" href="https://fater.top/record/upgrade-wsl-system-install-ros2-humble/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>无网络的Ubuntu环境下安装pppoe拨号上网 | 不会Debug</title>
+  <title>升级WSL系统并安装ROS2-Humble | 不会Debug</title>
   
 
 
@@ -176,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://fater.top/record/ubuntu-system-install-pppoe-without-network/">
+    <link itemprop="mainEntityOfPage" href="https://fater.top/record/upgrade-wsl-system-install-ros2-humble/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          无网络的Ubuntu环境下安装pppoe拨号上网
+          升级WSL系统并安装ROS2-Humble
         </h1>
 
         <div class="post-meta">
@@ -198,16 +199,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-08-24 18:57:11" itemprop="dateCreated datePublished" datetime="2022-08-24T18:57:11+08:00">2022-08-24</time>
+              <time title="创建时间：2023-11-22 02:48:06 / 修改时间：03:08:55" itemprop="dateCreated datePublished" datetime="2023-11-22T02:48:06+08:00">2023-11-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-01-12 09:19:43" itemprop="dateModified" datetime="2023-01-12T09:19:43+08:00">2023-01-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -224,14 +219,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>141</span>
+              <span>679</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -243,26 +238,53 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在没有网络的Ubuntu环境下安装pppoe拨号上网</p>
+        <p>将WSL系统从Ubuntu 20.04升级到Ubuntu 22.04，并安装ROS2-Humble。记录遇到的部分问题及解决方法。</p>
 <span id="more"></span>
 
-<h2 id="下载离线pppoe安装包"><a href="#下载离线pppoe安装包" class="headerlink" title="下载离线pppoe安装包"></a>下载离线pppoe安装包</h2><p><a target="_blank" rel="noopener" href="http://security.ubuntu.com/ubuntu/pool/main/p/pppoeconf/pppoeconf_1.21ubuntu1_all.deb">pppoeconf_1.21ubuntu1_all.deb</a></p>
-<p>用U盘等存储设备将下载的<code>pppoeconf_1.21ubuntu1_all.deb</code>复制到Ubuntu主机下</p>
-<h2 id="离线安装pppoe"><a href="#离线安装pppoe" class="headerlink" title="离线安装pppoe"></a>离线安装pppoe</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i ./pppoeconf_1.21ubuntu1_all.deb</span><br></pre></td></tr></table></figure>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>目前使用的是Win11+WSL2+Ubuntu 20.04的开发环境，其中ROS2版本为Galactic。由于需要使用ROS2-Humble，需要将WSL系统升级到Ubuntu 22.04，并安装ROS2-Humble。</p>
+<h2 id="升级WSL系统"><a href="#升级WSL系统" class="headerlink" title="升级WSL系统"></a>升级WSL系统</h2><p>需要使用Ubuntu 22.04，有两种解决方案，一种是再开一个Ubuntu 22.04的发行版，另一种是将原有的Ubuntu 20.04升级到Ubuntu 22.04。由于硬盘空间有限，而且WSL2占用空间不算小，所以选择升级原有的Ubuntu 22.04。</p>
+<p>以下为升级过程：</p>
+<ol>
+<li>设置 <code>release-upgrades</code> 为 <code>lts</code>，编辑 <code>/etc/update-manager/release-upgrades</code> 文件，确保选项为 <code>Prompt=lts</code> ，如果不是，修改为 <code>Prompt=lts</code> 保存退出</li>
+</ol>
+<p>使用以下命令编辑文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/update-manager/release-upgrades</span><br></pre></td></tr></table></figure>
 
-<h2 id="运行pppoe并配置连接"><a href="#运行pppoe并配置连接" class="headerlink" title="运行pppoe并配置连接"></a>运行pppoe并配置连接</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pppoeconf</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>更新系统，确保系统为最新版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="pppoe开启和停止"><a href="#pppoe开启和停止" class="headerlink" title="pppoe开启和停止"></a>pppoe开启和停止</h2><p>启动服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pon dsl-provider</span><br></pre></td></tr></table></figure>
+<p>如果出现类似以下的 <code>WARNING</code>，需要进行处理，否则升级过程中可能会卡出来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GPG error: https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64  InRelease: The following signatures couldn<span class="string">&#x27;t be verified because the public key is not available: NO_PUBKEY A4B469963BF863CC</span></span><br></pre></td></tr></table></figure>
 
-<p>停止服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo poff</span><br></pre></td></tr></table></figure>
+<p>可以选择将 <code>/etc/apt/sources.list.d/</code> 目录下对应的 <code>.list</code> 文件内容全部注释掉，然后再执行 <code>sudo apt update</code>，确保没有 <code>WARNING</code> 信息。笔者把网上的解决 <code>GPG error</code> 的方法基本都试了一遍，暂时还没找到正解，如果有的话可以在评论区留言。</p>
+<ol start="3">
+<li>升级系统</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo do-release-upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="关于重复断连重试"><a href="#关于重复断连重试" class="headerlink" title="关于重复断连重试"></a>关于重复断连重试</h2><p>查看pppoe配置文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ppp/peers/dsl-provider</span><br></pre></td></tr></table></figure>
+<p>升级过程中会有一些提示，按照提示进行操作即可。</p>
+<ol start="4">
+<li>升级完成后，检查系统版本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
 
-<p>调整<code>lcp-echo-failure</code>为15，即断连重试15次再重新连接</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">lcp-echo-interval 30</span><br><span class="line">lcp-echo-failure 15</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>输出结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 22.04.3 LTS</span><br><span class="line">Release:        22.04</span><br><span class="line">Codename:       jammy</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装ROS2-Humble"><a href="#安装ROS2-Humble" class="headerlink" title="安装ROS2-Humble"></a>安装ROS2-Humble</h2><p>基本按照官方的<a target="_blank" rel="noopener" href="https://docs.ros.org/en/humble/Installation.html">安装教程</a>进行安装即可，以下为安装过程中遇到的问题及解决方法。</p>
+<p>在执行以下命令时，可能会出现报错，这是因为 <code>ros-humble-desktop</code> 还没有被添加到 <code>apt</code> 的源中，需要手动添加。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ros-humble-desktop</span><br></pre></td></tr></table></figure>
+
+<p>报错信息如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Reading package lists... </span><br><span class="line">Done Building dependency tree... </span><br><span class="line">Done Reading state information... </span><br><span class="line">Done Some packages could not be installed. </span><br><span class="line">This may mean that you have requested an impossible situation or <span class="keyword">if</span> you are using the unstable distribution that some required packages have not yet been created or been moved out of Incoming. </span><br><span class="line">The following information may <span class="built_in">help</span> to resolve the situation: </span><br><span class="line">The following packages have unmet dependencies: </span><br><span class="line">libgbm-dev : Depends: libgbm1 (= 23.0.4-0ubuntu1~22.04.1) but 23.2.1~kisak2~f is to be installed </span><br><span class="line">E: Unable to correct problems, you have held broken packages.</span><br></pre></td></tr></table></figure>
+
+<p>解决方法如下：</p>
+<p>卸载对应的 <code>libgbm1</code>，然后重新安装 <code>libgbm1</code> 即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove libgbm1</span><br><span class="line">sudo apt install libgbm1</span><br></pre></td></tr></table></figure>
+
+<p>如果碰到其他类似，如 <code>libegl-mesa0</code>，也可以按照上述方法进行处理。</p>
 
     </div>
 
@@ -291,8 +313,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/pppoe/" rel="tag"># pppoe</a>
-              <a href="/tags/%E7%A6%BB%E7%BA%BF/" rel="tag"># 离线</a>
+              <a href="/tags/WSL/" rel="tag"># WSL</a>
+              <a href="/tags/ROS2-Humble/" rel="tag"># ROS2-Humble</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           </div>
 
         
@@ -301,13 +324,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/tools/move-wsl2-to-other-disk/" rel="prev" title="移动WSL2至其他磁盘">
-      <i class="fa fa-chevron-left"></i> 移动WSL2至其他磁盘
+    <a href="/usage/build-test-alphapose/" rel="prev" title="Ubuntu 20.04 构建并测试 AlphaPose">
+      <i class="fa fa-chevron-left"></i> Ubuntu 20.04 构建并测试 AlphaPose
     </a></div>
-      <div class="post-nav-item">
-    <a href="/record/init-nvidia-in-docker-by-ssh-ubuntu/" rel="next" title="在Ubuntu上使用Docker容器隔离出单个cuda环境">
-      在Ubuntu上使用Docker容器隔离出单个cuda环境 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -367,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E7%A6%BB%E7%BA%BFpppoe%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">下载离线pppoe安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85pppoe"><span class="nav-number">2.</span> <span class="nav-text">离线安装pppoe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cpppoe%E5%B9%B6%E9%85%8D%E7%BD%AE%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">运行pppoe并配置连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pppoe%E5%BC%80%E5%90%AF%E5%92%8C%E5%81%9C%E6%AD%A2"><span class="nav-number">4.</span> <span class="nav-text">pppoe开启和停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E9%87%8D%E5%A4%8D%E6%96%AD%E8%BF%9E%E9%87%8D%E8%AF%95"><span class="nav-number">5.</span> <span class="nav-text">关于重复断连重试</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7WSL%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">升级WSL系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ROS2-Humble"><span class="nav-number">3.</span> <span class="nav-text">安装ROS2-Humble</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -526,7 +546,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'Fater-blog-comments',
       owner       : 'FaterYU',
       admin       : ['FaterYU'],
-      id          : '7b7b1dfbb007f963899165f236a8ab81',
+      id          : 'e76a6a4d4db9ed03113ef586496de189',
         language: '',
       distractionFreeMode: true
     });
