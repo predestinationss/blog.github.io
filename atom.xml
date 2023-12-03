@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-11-21T19:08:55.447Z</updated>
+  <updated>2023-12-03T18:34:07.281Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>升级WSL系统并安装ROS2-Humble</title>
+    <title>domjudge-docker-config</title>
+    <link href="https://fater.top/record/domjudge-docker-config/"/>
+    <id>https://fater.top/record/domjudge-docker-config/</id>
+    <published>2023-12-03T15:03:24.000Z</published>
+    <updated>2023-12-03T18:34:07.281Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;给院赛配置的DOMjudge，使用Docker部署，记录配置过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="record" scheme="https://fater.top/categories/record/"/>
+    
+    
+    <category term="DOMjudge" scheme="https://fater.top/tags/DOMjudge/"/>
+    
+    <category term="Docker" scheme="https://fater.top/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>升级WSL2系统并安装ROS2-Humble</title>
     <link href="https://fater.top/record/upgrade-wsl-system-install-ros2-humble/"/>
     <id>https://fater.top/record/upgrade-wsl-system-install-ros2-humble/</id>
     <published>2023-11-21T18:48:06.000Z</published>
-    <updated>2023-11-21T19:08:55.447Z</updated>
+    <updated>2023-11-22T05:01:37.304Z</updated>
     
     
     <summary type="html">&lt;p&gt;将WSL系统从Ubuntu 20.04升级到Ubuntu 22.04，并安装ROS2-Humble。记录遇到的部分问题及解决方法。&lt;/p&gt;</summary>
@@ -105,31 +126,6 @@
     <category term="DNS" scheme="https://fater.top/tags/DNS/"/>
     
     <category term="wifi" scheme="https://fater.top/tags/wifi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows Terminal 优化 | oh-my-posh+lux</title>
-    <link href="https://fater.top/tools/windows-terminal-tools/"/>
-    <id>https://fater.top/tools/windows-terminal-tools/</id>
-    <published>2023-01-14T02:32:00.000Z</published>
-    <updated>2023-01-16T03:28:34.920Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Windows Power Shell 也能像 Linux 一样更改主题，持续补充&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="tools" scheme="https://fater.top/categories/tools/"/>
-    
-    
-    <category term="Windows" scheme="https://fater.top/tags/Windows/"/>
-    
-    <category term="Terminal" scheme="https://fater.top/tags/Terminal/"/>
-    
-    <category term="oh-my-posh" scheme="https://fater.top/tags/oh-my-posh/"/>
-    
-    <category term="Lux" scheme="https://fater.top/tags/Lux/"/>
     
   </entry>
   
