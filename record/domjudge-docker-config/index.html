@@ -27,12 +27,15 @@
 <meta property="og:site_name" content="不会Debug">
 <meta property="og:description" content="给院赛配置的DOMjudge，使用Docker部署，记录配置过程。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fater.top/img/domjudge-docker-config-0.png">
+<meta property="og:image" content="https://fater.top/img/domjudge-docker-config-1.png">
 <meta property="article:published_time" content="2023-12-03T15:03:24.000Z">
-<meta property="article:modified_time" content="2023-12-04T04:59:46.308Z">
+<meta property="article:modified_time" content="2023-12-10T14:36:07.612Z">
 <meta property="article:author" content="FaterYU">
 <meta property="article:tag" content="DOMjudge">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fater.top/img/domjudge-docker-config-0.png">
 
 <link rel="canonical" href="https://fater.top/record/domjudge-docker-config/">
 
@@ -206,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-04 12:59:46" itemprop="dateModified" datetime="2023-12-04T12:59:46+08:00">2023-12-04</time>
+                <time title="修改时间：2023-12-10 22:36:07" itemprop="dateModified" datetime="2023-12-10T22:36:07+08:00">2023-12-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,14 +227,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>864</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -250,7 +253,7 @@
 <p>这通常意味着参赛队在现场有固定的时间（大多为 5 小时）和一台计算机来解决一定数量的问题（大多为 8-12 个）。解决问题的方法是用一种允许使用的语言编写一个程序，根据问题输入规范读取输入，并写出正确的相应输出。</p>
 <p>评审工作通过向评审团提交解决方案的源代码来完成。评审团系统会自动编译和运行程序，并将程序输出与预期输出进行比较。</p>
 <p>该软件可用于处理此类竞赛中的提交和评审工作。它还可以处理对参赛队的反馈和问题沟通（澄清请求）。它为评审团、参赛队（他们的提交和澄清请求）和公众（记分牌）提供了网络接口。</p>
-<p>官方手册 <a target="_blank" rel="noopener" href="https://www.domjudge.org/docs/manual/main/index.html">DOMjudge Manual</a></p>
+<p>官方手册 <a target="_blank" rel="noopener" href="https://www.domjudge.org/docs/manual/main/index.html">DOMjudge Manual</a><br>Docker Image <a target="_blank" rel="noopener" href="https://hub.docker.com/r/domjudge/domserver/">domjudge&#x2F;domserver</a></p>
 <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="检查更新"><a href="#检查更新" class="headerlink" title="检查更新"></a>检查更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装-Docker"><a href="#安装-Docker" class="headerlink" title="安装 Docker"></a>安装 Docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://test.docker.com -o test-docker.sh</span><br><span class="line">sudo sh test-docker.sh</span><br></pre></td></tr></table></figure>
@@ -268,16 +271,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 
 <h3 id="配置-MariaDB"><a href="#配置-MariaDB" class="headerlink" title="配置 MariaDB"></a>配置 MariaDB</h3><p>配置 <code>MariaDB</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -it --name dj-mariadb -e MYSQL_ROOT_PASSWORD=&lt;DB_ROOT_PWD&gt; -e MYSQL_USER=domjudge -e MYSQL_PASSWORD=&lt;DB_PWD&gt; -e MYSQL_DATABASE=domjudge -p 13306:3306 mariadb --max-connections=1000 --max-allowed-packet=&lt;MX_PACKET_SIZE&gt; --innodb-log-file-size=&lt;MX_LOG_SIZE&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -it --name dj-mariadb -e MYSQL_ROOT_PASSWORD=&lt;DB_ROOT_PWD&gt; -e MYSQL_USER=domjudge -e MYSQL_PASSWORD=&lt;DB_PWD&gt; -e MYSQL_DATABASE=domjudge -p 13306:3306 mariadb --max-connections=1000</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>&lt;DB_ROOT_PWD&gt;</code>：数据库 <code>root</code> 用户密码</li>
 <li><code>&lt;DB_PWD&gt;</code>：数据库 <code>domjudge</code> 用户密码</li>
-<li><code>&lt;MX_PACKET_SIZE&gt;</code>：数据库最大包大小，单位 <code>MB</code>，应设置为测试点大小最大值的二倍以上</li>
-<li><code>&lt;MX_LOG_SIZE&gt;</code>：数据库最大日志大小，单位 <code>MB</code>，应设置为测试点大小最大值的十倍以上</li>
 </ul>
 <p>填充合适参数配置后的命令示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -it --name dj-mariadb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=domjudge -e MYSQL_PASSWORD=123456 -e MYSQL_DATABASE=domjudge -p 13306:3306 mariadb --max-connections=1000 --max-allowed-packet=256 --innodb-log-file-size=1024</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -it --name dj-mariadb -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_USER=domjudge -e MYSQL_PASSWORD=123456 -e MYSQL_DATABASE=domjudge -p 13306:3306 mariadb --max-connections=1000</span><br></pre></td></tr></table></figure>
+
 
 <h3 id="配置-DOMserver"><a href="#配置-DOMserver" class="headerlink" title="配置 DOMserver"></a>配置 DOMserver</h3><p>配置 <code>DOMserver</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --<span class="built_in">link</span> dj-mariadb:mariadb -it -e MYSQL_HOST=mariadb -e MYSQL_USER=domjudge -e MYSQL_DATABASE=domjudge -e MYSQL_PASSWORD=&lt;DB_PWD&gt; -e MYSQL_ROOT_PASSWORD=&lt;DB_ROOT_PWD&gt; -e CONTAINER_TIMEZONE=Asia/Shanghai -p 12345:80 --name domserver domjudge/domserver:latest</span><br></pre></td></tr></table></figure>
@@ -290,6 +292,38 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it domserver <span class="built_in">cat</span> /opt/domjudge/domserver/etc/initial_admin_password.secret</span><br></pre></td></tr></table></figure>
 
 <p>访问 <code>http://localhost:12345</code>，使用 <code>admin</code> 用户登录，密码为上一步查看到的 <code>admin</code> 密码。</p>
+<p>到这一步，<code>DOMjudge</code> 的 <code>web</code> 界面已经可以正常访问了</p>
+<details> <summary>MySQL innodb_log_file & max_allowed_packet 错误分析（不感兴趣至今按下述建议步骤执行即可）</summary>
+
+<p>进入 <code>Config checker</code> 查看</p>
+<p><img src="/img/domjudge-docker-config-0.png" alt="config-checker入口"></p>
+<p>发现选项 <code>MySOL settings</code> 存在标红报错的情况：</p>
+<p><img src="/img/domjudge-docker-config-1.png" alt="MySOL settings"></p>
+<p>点进去查看，提示信息为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MySQl&#x27;s innodb_log_file size is set to 4 MB. You may want to raise this to 10x tm of the test case size and output (storage) limit (now 48 8 MB)</span><br><span class="line">MySQL&#x27;s max_allowed_packet is set to 2 KB. You may want to raise this to about twice the maximum of the test case size and output (storage) limit (currently 48.8MB)</span><br></pre></td></tr></table></figure>
+
+<p>这会导致在上传超过 <code>2KB</code> 的文件时会产生类似 <code>SQLSTATE[HY000]: General error. 2006 MySQL server has gone away</code> 的错误。</p>
+<p>此时需要去修改数据库容器 <code>dj-mariadb</code> 的配置，从命令 <code>docker exec -it dj-mariadb mariadb -u root -p</code> 进入容器数据库并输入前面设置的 <code>MYSQL_ROOT_PASSWORD</code> 。再通过 <code>show variables like &#39;max_allowed_packet&#39;;</code> 查看数据库当前的配置大小：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show variables like &#x27;max_allowed_packet&#x27;;</span><br><span class="line">+--------------------+-------+</span><br><span class="line">| Variable_name      | Value |</span><br><span class="line">+--------------------+-------+</span><br><span class="line">| max_allowed_packet | 2048  |</span><br><span class="line">+--------------------+-------+</span><br><span class="line">1 row in set (0.002 sec)</span><br></pre></td></tr></table></figure>
+
+<p>对应地需要修改这个配置参数到需要的大小。</p>
+</details>
+
+<p>进入 <code>dj-mariadb</code> 容器修改最大允许包的限制大小：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it dj-mariadb /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>更新并按照所需的文本编辑工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@57b10c73e875:/<span class="comment"># apt update &amp;&amp; apt upgrade -y</span></span><br><span class="line">root@57b10c73e875:/<span class="comment"># apt install nano</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此处使用 <code>nano</code> ，如果用不惯的话自己使用 <code>vim</code> 或 <code>gedit</code> 进行修改</p>
+</blockquote>
+<p>打开文件 <code>nano etc/mysql/mariadb.conf.d/50-server.cnf</code> 找到并去除以下行的注释：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- #max_allowed_packet     = 1G</span></span><br><span class="line"><span class="addition">+ max_allowed_packet     = 1G</span></span><br></pre></td></tr></table></figure>
+
+<p>保存并退出，其中 <code>1G</code> 可根据实际需要修改，不过开大一点影响不大，完成后 <code>exit</code> 退出容器，并重启 <code>dj-mariadb</code> 容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart dj-mariadb</span><br></pre></td></tr></table></figure>
+<p>完成后再次查看 <code>Config checker</code> 可以看到已经无标红报错</p>
 <p>查看 <code>API</code> 的 <code>secret</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it domserver <span class="built_in">cat</span> /opt/domjudge/domserver/etc/restapi.secret</span><br></pre></td></tr></table></figure>
 
@@ -493,7 +527,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
