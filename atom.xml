@@ -6,7 +6,7 @@
   <link href="https://fater.top/atom.xml" rel="self"/>
   
   <link href="https://fater.top/"/>
-  <updated>2023-12-10T14:36:07.612Z</updated>
+  <updated>2023-12-10T14:45:49.789Z</updated>
   <id>https://fater.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://fater.top/record/domjudge-docker-config/"/>
     <id>https://fater.top/record/domjudge-docker-config/</id>
     <published>2023-12-03T15:03:24.000Z</published>
-    <updated>2023-12-10T14:36:07.612Z</updated>
+    <updated>2023-12-10T14:45:49.789Z</updated>
     
     
     <summary type="html">&lt;p&gt;给院赛配置的DOMjudge，使用Docker部署，记录配置过程。&lt;/p&gt;</summary>
